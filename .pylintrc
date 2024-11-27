@@ -1,0 +1,67 @@
+[MASTER]
+load-plugins=pylint.extensions.docparams, pylint.extensions.docstyle, pylint.extensions.bad_builtin, pylint.extensions.mccabe
+persistent=yes
+ignore=tests.py,urls.py,migrations
+
+[MESSAGES CONTROL]
+# C0103 invalid-name       Invalid module name
+# C0111 missing-docstring  Missing docstring
+# R0901 too-many-ancestors Used when class has too many parent classes, try to reduce this to get a simpler (and so easier to use) class.
+# W0212 Access to a protected member %s of a client class
+disable=invalid-name,missing-docstring,too-many-ancestors,protected-access
+
+[REPORTS]
+msg-template={path}:{line}: [{msg_id}({symbol}), {obj}] {msg}
+
+[BASIC]
+no-docstring-rgx=__.*__|_.*
+class-rgx=[A-Z_][a-zA-Z0-9_]+$
+function-rgx=[a-zA_][a-zA-Z0-9_]{2,70}$
+method-rgx=[a-z_][a-zA-Z0-9_]{2,70}$
+const-rgx=(([A-Z_][A-Z0-9_]*)|([a-z_][a-z0-9_]*)|(__.*__)|register|urlpatterns)$
+good-names=_,i,j,k,e,qs,pk,setUp,tearDown
+
+[TYPECHECK]
+# Tells whether missing members accessed in mixin class should be ignored. A
+# mixin class is detected if its name ends with "mixin" (case insensitive).
+ignore-mixin-members=yes
+
+# List of classes names for which member attributes should not be checked
+# (useful for classes with attributes dynamically set).
+ignored-classes=SQLObject,WSGIRequest
+
+# List of members which are set dynamically and missed by pylint inference
+# system, and so shouldn't trigger E0201 when accessed.
+generated-members=objects,DoesNotExist,id,pk,_meta,base_fields,context
+
+# List of method names used to declare (i.e. assign) instance attributes
+defining-attr-methods=__init__,__new__,setUp
+
+[VARIABLES]
+init-import=no
+dummy-variables-rgx=_|dummy
+
+[SIMILARITIES]
+min-similarity-lines=10
+ignore-imports=yes
+ignore-comments=yes
+ignore-docstrings=yes
+
+[MISCELLANEOUS]
+notes=FIXME,XXX,TODO
+
+[FORMAT]
+max-line-length=160
+max-module-lines=600
+indent-string='    '
+
+[DESIGN]
+max-args=10
+max-locals=15
+max-returns=6
+max-branches=12
+max-statements=50
+max-parents=7
+max-attributes=10
+min-public-methods=0
+max-public-methods=50

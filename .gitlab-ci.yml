@@ -1,0 +1,114 @@
+# ---------------------------------------------------------------------------- #
+# Base Setup                                                                   #
+# ---------------------------------------------------------------------------- #
+stages:
+  - test
+  - bulild
+  - deploy
+  - release
+
+before_script:
+  - ./devops/python/setup_poetry.sh
+
+cache:
+  paths:
+    - .cache/pypoetry
+
+# ---------------------------------------------------------------------------- #
+# Test                                                                         #
+# ---------------------------------------------------------------------------- #
+package:test:py311:
+  stage: test
+  image: python:3.11
+  script:
+    - ./devops/python/setup_dependencies.sh
+    - ./devops/python/execute_tests.sh
+    - ./devops/python/upload_coverage.sh
+  cache:
+    key: ${CI_JOB_NAME}
+    paths:
+      - .tox
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+
+# ---------------------------------------------------------------------------- #
+# Package                                                                      #
+# ---------------------------------------------------------------------------- #
+package:bulild:py311:
+  stage: bulild
+  image: python:3.11
+  script:
+    - ./devops/python/build_package.sh
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+  dependencies:
+    - package:test:py311
+  only:
+    - /v(\d+)\.(\d+)\.(\d+)/
+
+docs:bulild:py311:
+  stage: bulild
+  image: python:3.11
+  script:
+    - ./devops/python/setup_dependencies.sh
+    - ./devops/python/build_docs_with_jupyterbook.sh
+  artifacts:
+    paths:
+      - _build/
+    expire_in: 1 week
+  dependencies:
+    - package:test:py311
+  only:
+    - master
+
+# ---------------------------------------------------------------------------- #
+# Release                                                                      #
+# ---------------------------------------------------------------------------- #
+package:deploy:py311:
+  stage: deploy
+  image: python:3.11
+  script:
+    - ./devops/python/setup_pypi_credentials.sh
+    - ./devops/python/publish_package_to_pypi.sh
+  dependencies:
+    - package:bulild:py311
+  only:
+    - /v(\d+)\.(\d+)\.(\d+)/
+
+package:release:gitlab:py311:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  rules:
+    - if: $CI_COMMIT_TAG                 # Run this job when a tag is created
+  before_script:
+  - echo ""
+  script:
+    - echo "Creating Release $CI_COMMIT_TAG"
+  release:                               # See https://docs.gitlab.com/ee/ci/yaml/#release for available properties
+    tag_name: '$CI_COMMIT_TAG'
+    description: '$CI_COMMIT_TAG'
+  dependencies:
+    - package:bulild:py311
+
+# Gitlab requires the use of the name "pages" for the job  in order to have
+# Gitlab Pages working correctly.
+# docs:deploy:py311:
+pages:
+  stage: deploy
+  image: busybox:latest
+  before_script:
+    - echo "Doesn't need any setup"
+  script:
+    - ./devops/python/publish_docs_to_gitlab_pages.sh
+  artifacts:
+    paths:
+      - public/
+    expire_in: 1 week
+  dependencies:
+    - docs:bulild:py311
+  only:
+    - master
