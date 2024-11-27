@@ -1,0 +1,126 @@
+[tool.poetry]
+name = "pygments-sb-nrql"
+version = "0.1.0"
+description = "New Relic SDK to interact with Nerdgraph API."
+authors = [
+  "SoftButterfly Development Team <dev@softbutterfly.io>",
+  "zodiacfireworks <martin.vuelta@gmail.com>"
+]
+license = "MIT License"
+readme = "README.md"
+homepage = "https://github.com/dynovaio/pygments-sb-nrql"
+repository = "https://github.com/dynovaio/pygments-sb-nrql"
+documentation = "https://dynovaio.github.io/pygments-sb-nrql"
+keywords = [
+  "Softbutterfly",
+  "New Relic",
+  "SDK",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: System Administrators",
+  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: System",
+  "Topic :: System :: Monitoring",
+  "Topic :: System :: Networking :: Monitoring",
+]
+packages = [
+    { include = "pygments_sb_nrql", from = "src" },
+]
+include = [
+  "LICENSE.txt",
+  "CHANGELOG.md",
+]
+
+[tool.poetry.urls]
+"Download" = "https://github.com/dynovaio/pygments-sb-nrql/archive/refs/tags/v0.1.0.zip"
+"Bug Tracker" = "https://github.com/dynovaio/pygments-sb-nrql/issues"
+
+[tool.poetry.dependencies]
+python = ">=3.9.0,<4.0.0"
+pygments = "<3.0.0"
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^2.3.1"
+bandit = "^1.7.10"
+black = "^24.10.0"
+coverage = "^7.6.4"
+deepdiff = {extras = ["optimize"], version = "^8.0.1"}
+flake8 = "^7.1.1"
+flake8-black = "^0.3.6"
+importnb = "^2023.11.1"
+isort = "^5.13.2"
+jupyter-book = "^1.0.3"
+jupyterlab = "^4.3.0"
+mypy = "^1.13.0"
+nbdev = "^2.3.31"
+nbmake = "^1.5.4"
+nbqa = {extras = ["toolchain"], version = "^1.9.1"}
+pre-commit = "^4.0.1"
+pycodestyle = "^2.12.1"
+pydocstyle = "^6.3.0"
+pylint = "^3.3.1"
+pytest = "^8.3.3"
+pytest-cov = "^6.0.0"
+ruff = "^0.7.3"
+tbump = "^6.11.0"
+tox = "^4.23.2"
+types-requests = "^2.32.0.20241016"
+
+[tool.poetry.plugins."pygments.lexers"]
+graphql = "pygments_sb_nrql:NrqlLexer"
+
+
+[tool.black]
+target_version = ['py311']
+include = '\.pyi?$'
+exclude = '''
+/(\.git/
+  |\.eggs
+  |\.hg
+  |__pycache__
+  |\.cache
+  |\.ipynb_checkpoints
+  |\.mypy_cache
+  |\.pytest_cache
+  |\.tox
+  |\.venv
+  |_build
+  |buck-out
+  |build
+  |dist
+  |legacy
+)/
+'''
+
+[tool.pytest.ini_options]
+testpaths = "tests"
+python_files = [
+  "**/test_*.py",
+]
+filterwarnings =[
+  "ignore::DeprecationWarning",
+  "ignore::PendingDeprecationWarning"
+]
+addopts = [
+  "--cov=pygments_sb_nrql",
+  "--cov-report=xml:cobertura.xml",
+  "--cov-report=term",
+  "--import-mode=importlib",
+  "--junitxml=report.xml",
+  "--nbmake",
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
