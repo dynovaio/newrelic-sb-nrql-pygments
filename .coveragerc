@@ -1,0 +1,9 @@
+[run]
+branch = True
+omit =
+    */.tox/*
+    */.local/*
+    */.cache/*
+    */tests/*
+    _modidx.py
+    version.py

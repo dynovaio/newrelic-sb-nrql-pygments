@@ -1,0 +1,9 @@
+format: jb-book
+root: README.md
+chapters:
+  - file: notebooks/Gallery.ipynb
+  - file: notebooks/Builtins.ipynb
+  - file: notebooks/Lexer.ipynb
+  - file: CHANGELOG.md
+  - file: CONTRIBUTING.md
+  - file: CODE_OF_CONDUCT.md
