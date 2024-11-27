@@ -12,7 +12,9 @@
 
 New Relic Query Language (NRQL) lexer for Pygments built by Dynova.
 
-New Relic Query Language (NRQL) is a SQL-like query language you can use to query your data in New Relic. This is a Python package that provides a lexer for Pygments to highlight NRQL queries.
+NRQL is a SQL-like query language you can use to query your data in New Relic.
+This is a Python package that provides a lexer for Pygments to highlight NRQL
+queries.
 
 ## Requirements
 
@@ -28,7 +30,8 @@ pip install pygments-sb-nrql
 
 ## Usage
 
-Just install and create markdown blocks with the language `nrql` to get a highlighted code block.
+Just install and create markdown blocks with the language `nrql` to get a
+highlighted code block.
 
 <pre>
 ```nrql
