@@ -68,7 +68,7 @@ COMPARE WITH
 ```
 </pre>
 
-![Pygments SB NRQL](https://gitlab.com/softbutterfly/open-source/pygments-sb-nrql/-/raw/master/assets/pygments-sb-nrql--example.png)
+![Pygments SB NRQL](https://raw.githubusercontent.com/dynovaio/pygments-sb-nrql/refs/heads/master/assets/pygments-sb-nrql--example.png)
 
 ## Docs
 
