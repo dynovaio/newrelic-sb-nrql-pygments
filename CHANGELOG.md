@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Fix entrypoint name for the package
+
 ## [0.1.0] - 2024-11-27
 
 * Add support for buil-in keywords
