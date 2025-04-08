@@ -3,7 +3,7 @@ __all__ = ["NrqlLexer"]
 
 import re
 
-from pygments.lexer import RegexLexer
+from pygments.lexer import RegexLexer, words
 from pygments.token import (
     Comment,
     Keyword,
@@ -54,7 +54,8 @@ class NrqlLexer(RegexLexer):
                 Name.Function,
             ),
             (
-                r"(" + "|".join(OPERATORS) + r")\b",
+                # r"(" + "|".join(OPERATORS) + r")\b",
+                words(OPERATORS),
                 Operator,
             ),
             (
