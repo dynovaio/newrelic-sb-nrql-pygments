@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Fix error when using both `*` and `!=` operators.
+
 ## [0.2.0] - 2024-11-27
 
 * Fix entrypoint name for the package
