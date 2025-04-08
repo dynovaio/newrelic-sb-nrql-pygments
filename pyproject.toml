@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pygments-sb-nrql"
-version = "0.2.0"
+version = "0.3.0"
 description = "New Relic SDK to interact with Nerdgraph API."
 authors = [
   "SoftButterfly Development Team <dev@softbutterfly.io>",
@@ -45,7 +45,7 @@ include = [
 ]
 
 [tool.poetry.urls]
-"Download" = "https://github.com/dynovaio/pygments-sb-nrql/archive/refs/tags/v0.2.0.zip"
+"Download" = "https://github.com/dynovaio/pygments-sb-nrql/archive/refs/tags/v0.3.0.zip"
 "Bug Tracker" = "https://github.com/dynovaio/pygments-sb-nrql/issues"
 
 [tool.poetry.dependencies]
