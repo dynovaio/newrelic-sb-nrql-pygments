@@ -8,9 +8,9 @@ authors = [
 ]
 license = "MIT License"
 readme = "README.md"
-homepage = "https://github.com/dynovaio/pygments-sb-nrql"
-repository = "https://github.com/dynovaio/pygments-sb-nrql"
-documentation = "https://dynovaio.github.io/pygments-sb-nrql"
+homepage = "https://github.com/dynovaio/newrelic-sb-nrql-pygments"
+repository = "https://github.com/dynovaio/newrelic-sb-nrql-pygments"
+documentation = "https://dynovaio.github.io/newrelic-sb-nrql-pygments"
 keywords = [
   "Softbutterfly",
   "New Relic",
@@ -45,8 +45,8 @@ include = [
 ]
 
 [tool.poetry.urls]
-"Download" = "https://github.com/dynovaio/pygments-sb-nrql/archive/refs/tags/v0.3.0.zip"
-"Bug Tracker" = "https://github.com/dynovaio/pygments-sb-nrql/issues"
+"Download" = "https://github.com/dynovaio/newrelic-sb-nrql-pygments/archive/refs/tags/v0.3.0.zip"
+"Bug Tracker" = "https://github.com/dynovaio/newrelic-sb-nrql-pygments/issues"
 
 [tool.poetry.dependencies]
 python = ">=3.9.0,<4.0.0"
