@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.4.1] - 2025-05-30
+
 * Rename image to fix reference in documentation
 
 ## [0.4.0] - 2025-05-30
