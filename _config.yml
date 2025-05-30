@@ -39,7 +39,7 @@ latex:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/dynovaio/pygments-sb-nrql/ # Online location of your book
+  url: https://github.com/dynovaio/newrelic-sb-nrql-pygments/ # Online location of your book
   path_to_book: docs # Optional path to your book, relative to the repository root
   branch: master # Which branch of the repository should be used when creating links (optional)
 
@@ -50,7 +50,7 @@ html:
   use_issues_button: true
   use_edit_page_button: true
   use_repository_button: true
-  baseurl: https://dynovaio.github.io/pygments-sb-nrql
+  baseurl: https://dynovaio.github.io/newrelic-sb-nrql-pygments
 
 parse:
   myst_enable_extensions:

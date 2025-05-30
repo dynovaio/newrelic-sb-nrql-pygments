@@ -10,7 +10,7 @@
 Clone the project
 
 ```bash
-git clone https://github.com/dynovaio/pygments-sb-nrql.git
+git clone https://github.com/dynovaio/newrelic-sb-nrql-pygments.git
 cd pygments-sb-nrql
 ```
 

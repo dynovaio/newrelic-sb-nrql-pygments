@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.4.0] - 2025-05-30
+
+* Complete list of keywords, functions and operators accoding to the
+  [New Relic documentation](https://docs.newrelic.com/docs/nrql/nrql-syntax-clauses-functions/)
+  and related links.
+
 ## [0.3.0] - 2025-04-08
 
 * Fix error when using both `*` and `!=` operators.

@@ -87,11 +87,11 @@ class NrqlLexer(RegexLexer):
                 Name,
             ),
             (
-                r"`[a-zA-Z]+([a-zA-Z0-9_\.]*)([a-zA-Z0-9_]*)`",
+                r"`[a-zA-Z0-9:_]+([a-zA-Z0-9:_\.]*)([a-zA-Z0-9:_]*)`",
                 Name,
             ),
             (
-                r"[;:()\[\]\{\},\.]",
+                r"[;:()\[\],\.]",
                 Punctuation,
             ),
         ],

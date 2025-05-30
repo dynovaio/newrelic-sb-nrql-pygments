@@ -5,9 +5,9 @@
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/pygments-sb-nrql)
 ![PyPI - MIT License](https://img.shields.io/pypi/l/pygments-sb-nrql)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/16c98dc02de142a195ae029ac9c441fd)](https://app.codacy.com/gh/dynovaio/pygments-sb-nrql/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/16c98dc02de142a195ae029ac9c441fd)](https://app.codacy.com/gh/dynovaio/pygments-sb-nrql/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
-[![pipeline status](https://gitlab.com/softbutterfly/open-source/pygments-sb-nrql/badges/master/pipeline.svg)](https://gitlab.com/softbutterfly/open-source/pygments-sb-nrql/-/commits/master)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/16c98dc02de142a195ae029ac9c441fd)](https://app.codacy.com/gh/dynovaio/newrelic-sb-nrql-pygments/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/16c98dc02de142a195ae029ac9c441fd)](https://app.codacy.com/gh/dynovaio/newrelic-sb-nrql-pygments/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+[![pipeline status](https://gitlab.com/softbutterfly/open-source/newrelic-sb-nrql-pygments/badges/master/pipeline.svg)](https://gitlab.com/softbutterfly/open-source/newrelic-sb-nrql-pygments/-/commits/master)
 
 # Pygments SB NRQL
 
@@ -68,11 +68,11 @@ COMPARE WITH
 ```
 </pre>
 
-![Pygments SB NRQL](https://raw.githubusercontent.com/dynovaio/pygments-sb-nrql/refs/heads/master/assets/pygments-sb-nrql--example.png)
+![Pygments SB NRQL](https://raw.githubusercontent.com/dynovaio/newrelic-sb-nrql-pygments/refs/heads/master/assets/newrelic-sb-nrql-pygments--example.png)
 
 ## Docs
 
-* [Documentación](https://dynovaio.github.io/pygments-sb-nrql)
+* [Documentación](https://dynovaio.github.io/newrelic-sb-nrql-pygments)
 
 ## Changelog
 
@@ -84,7 +84,7 @@ Check out our [contribution guide](./CONTRIBUTING.md).
 
 ## Contributors
 
-See the list of contributors [here](https://github.com/dynovaio/pygments-sb-nrql/graphs/contributors).
+See the list of contributors [here](https://github.com/dynovaio/newrelic-sb-nrql-pygments/graphs/contributors).
 
 ## License
 

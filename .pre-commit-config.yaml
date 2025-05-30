@@ -18,11 +18,10 @@ repos:
       - id: shellcheck
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.43.0
+    rev: v0.45.0
     hooks:
       - id: markdownlint
         args: [--config, .markdownlint.json]
-        exclude: ^.*\b(notebooks-to-refactor)\b.*$
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
@@ -43,12 +42,12 @@ repos:
         name: nbqa-mypy
         alias: nbqa-mypy
         exclude: ^.*\b(GraphQL)\b.*$
-        additional_dependencies: [mypy==1.13.0, types-requests==2.32.0.20241016]
+        additional_dependencies: [mypy==1.16.0, types-requests==2.32.0.20250515]
       - id: nbqa
         entry: poetry run nbqa bandit
         name: nbqa-bandit
         alias: nbqa-bandit
-        additional_dependencies: [bandit==1.7.10]
+        additional_dependencies: [bandit==1.8.3]
       - id: nbqa-pylint
         args:
           [
@@ -58,7 +57,6 @@ repos:
             --disable=expression-not-assigned,
             --disable=too-many-lines,
           ]
-        exclude: ^.*\b(notebooks-to-refactor)\b.*$
 
   - repo: https://github.com/asottile/seed-isort-config
     rev: v2.2.0
@@ -71,7 +69,7 @@ repos:
       - id: isort
 
   - repo: https://github.com/ambv/black
-    rev: 24.10.0
+    rev: 25.1.0
     hooks:
       - id: black
 
@@ -84,7 +82,7 @@ repos:
         entry: sed -i -r 's/ " "/ /g'
 
   - repo: https://github.com/pycqa/flake8
-    rev: 7.1.1
+    rev: 7.2.0
     hooks:
       - id: flake8
 
@@ -94,15 +92,14 @@ repos:
       - id: pydocstyle
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.13.0
+    rev: v1.16.0
     hooks:
       - id: mypy
         files: \.py$
-        exclude: ^.*\b(graphql)\b.*$
-        additional_dependencies: [types-requests==2.32.0.20241016]
+        additional_dependencies: [types-requests==2.32.0.20250515]
 
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.8.0
+    rev: 1.8.3
     hooks:
       - id: bandit
         args: [-c, .bandit, -r, src]
@@ -114,5 +111,5 @@ repos:
         entry: poetry run pylint
         language: system
         types: [python]
-        exclude: ^.*\b(migrations|_modidx.py)\b.*$
+        exclude: ^.*\b(_modidx.py)\b.*$
         args: [--rcfile, .pylintrc, --ignore, migrations]

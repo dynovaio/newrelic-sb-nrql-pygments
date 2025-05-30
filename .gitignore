@@ -16,6 +16,7 @@
 !.shellcheckrc
 !.tox.ini
 !.travis.yml
+!.wakatime-project
 notebooks/**/*.py
 notebooks/**/*.csv
 notebooks/**/*.txt
@@ -43,3 +44,7 @@ public
 Makefile
 _build
 docs
+
+
+#Ignore vscode AI rules
+.github/copilot-instructions.md
