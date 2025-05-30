@@ -1,16 +1,17 @@
-[tool.poetry]
+[project]
 name = "pygments-sb-nrql"
 version = "0.3.0"
 description = "New Relic SDK to interact with Nerdgraph API."
 authors = [
-  "SoftButterfly Development Team <dev@softbutterfly.io>",
-  "zodiacfireworks <martin.vuelta@gmail.com>"
+  { name = "Dynova Development Team", email = "dev@dynova.io" },
+  { name = "zodiacfireworks", email = "martin.vuelta@gmail.com" }
 ]
+maintainers = [
+  { name = "zodiacfireworks", email = "martin.vuelta@gmail.com" }
+]
+readme = { file = "README.md", content-type = "text/markdown" }
 license = "MIT License"
-readme = "README.md"
-homepage = "https://github.com/dynovaio/newrelic-sb-nrql-pygments"
-repository = "https://github.com/dynovaio/newrelic-sb-nrql-pygments"
-documentation = "https://dynovaio.github.io/newrelic-sb-nrql-pygments"
+license-files = ["LICENSE.txt"]
 keywords = [
   "Softbutterfly",
   "New Relic",
@@ -36,6 +37,26 @@ classifiers = [
   "Topic :: Text Processing :: Markup",
   "Topic :: Utilities",
 ]
+requires-python = ">=3.9.0,<4.0.0"
+dependencies = [
+    "pygments (>=2.19.1,<3.0.0)"
+]
+
+[project.urls]
+Homepage = "https://github.com/dynovaio/newrelic-sb-nrql-pygments"
+Repository = "https://github.com/dynovaio/newrelic-sb-nrql-pygments"
+Documentation = "https://dynovaio.github.io/newrelic-sb-nrql-pygments"
+Issues = "https://github.com/dynovaio/newrelic-sb-nrql-pygments/issues"
+Download = "https://github.com/dynovaio/newrelic-sb-nrql-pygments/archive/refs/tags/v0.3.0.zip"
+Changelog = "https://github.com/dynovaio/newrelic-sb-nrql-pygments/blob/master/CHANGELOG.md"
+"Bug Tracker" = "https://github.com/dynovaio/newrelic-sb-nrql-pygments/issues"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = true
 packages = [
     { include = "pygments_sb_nrql", from = "src" },
 ]
@@ -44,40 +65,34 @@ include = [
   "CHANGELOG.md",
 ]
 
-[tool.poetry.urls]
-"Download" = "https://github.com/dynovaio/newrelic-sb-nrql-pygments/archive/refs/tags/v0.3.0.zip"
-"Bug Tracker" = "https://github.com/dynovaio/newrelic-sb-nrql-pygments/issues"
-
-[tool.poetry.dependencies]
-python = ">=3.9.0,<4.0.0"
-pygments = "<3.0.0"
 
 [tool.poetry.group.dev.dependencies]
-autopep8 = "^2.3.1"
-bandit = "^1.7.10"
-black = "^24.10.0"
-coverage = "^7.6.4"
-deepdiff = {extras = ["optimize"], version = "^8.0.1"}
-flake8 = "^7.1.1"
+autopep8 = "^2.3.2"
+bandit = "^1.8.3"
+black = "^25.1.0"
+coverage = "^7.8.2"
+deepdiff = {extras = ["optimize"], version = "^8.5.0"}
+flake8 = "^7.2.0"
 flake8-black = "^0.3.6"
 importnb = "^2023.11.1"
-isort = "^5.13.2"
-jupyter-book = "^1.0.3"
-jupyterlab = "^4.3.0"
-mypy = "^1.13.0"
-nbdev = "^2.3.31"
-nbmake = "^1.5.4"
+isort = "^6.0.1"
+jupyter-book = "^1.0.4.post1"
+jupyterlab = "^4.4.3"
+mypy = "^1.16.0"
+nbdev = "^2.4.2"
+nbmake = "^1.5.5"
 nbqa = {extras = ["toolchain"], version = "^1.9.1"}
-pre-commit = "^4.0.1"
-pycodestyle = "^2.12.1"
+poethepoet = "^0.34.0"
+pre-commit = "^4.2.0"
+pycodestyle = "^2.13.0"
 pydocstyle = "^6.3.0"
-pylint = "^3.3.1"
-pytest = "^8.3.3"
-pytest-cov = "^6.0.0"
-ruff = "^0.7.3"
+pylint = "^3.3.7"
+pytest = "^8.3.5"
+pytest-cov = "^6.1.1"
+ruff = "^0.11.12"
 tbump = "^6.11.0"
-tox = "^4.23.2"
-types-requests = "^2.32.0.20241016"
+tox = "^4.26.0"
+types-requests = "^2.32.0.20250515"
 
 [tool.poetry.plugins."pygments.lexers"]
 nrql = "pygments_sb_nrql:NrqlLexer"
@@ -122,6 +137,30 @@ addopts = [
   "--nbmake",
 ]
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.poe.tasks]
+"lint"            = "poetry run pre-commit run --all"
+"test"            = "poetry run pytest --cov newrelic_sb_sdk --cov-report xml:cobertura.xml --cov-report term --junitxml report.xml"
+"package:update"  = "poetry run nbdev_export"
+"package:stage"   = "git add src"
+"package:commit"  = "git commit -m 'Update: refresh src module from notebooks'"
+"version:update"  = "poetry run tbump --no-push --no-tag"
+"freeze"          = "poetry export --without-hashes --format requirements.txt --output requirements.txt"
+"freeze:dev"      = "poetry export --without-hashes --format requirements.txt --output requirements.dev.txt --with=dev"
+
+[tool.poe.tasks."package:upgrade"]
+sequence = [
+  { ref = "package:update"},
+  { ref = "lint"},
+  { ref = "package:stage" },
+  { ref = "package:commit" },
+  { cmd = "git --no-pager diff HEAD~1 HEAD -- > .diff.txt" },
+]
+ignore_fail = true
+
+[tool.poe.tasks."package:release"]
+sequence = [
+  { cmd = "git flow release start ${version}"},
+  { cmd = "poetry run tbump --no-push --no-tag --non-interactive ${version}" },
+  { cmd = "env GIT_EDITOR=: git flow release finish -m 'Release'"},
+]
+args = [{name = "version", positional = true}]
