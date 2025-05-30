@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Rename image to fix reference in documentation
+
 ## [0.4.0] - 2025-05-30
 
 * Complete list of keywords, functions and operators accoding to the
