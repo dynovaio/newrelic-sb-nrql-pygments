@@ -1,6 +1,6 @@
 [project]
 name = "pygments-sb-nrql"
-version = "0.4.1"
+version = "0.5.0"
 description = "New Relic SDK to interact with Nerdgraph API."
 authors = [
   { name = "Dynova Development Team", email = "dev@dynova.io" },
@@ -47,7 +47,7 @@ Homepage = "https://github.com/dynovaio/newrelic-sb-nrql-pygments"
 Repository = "https://github.com/dynovaio/newrelic-sb-nrql-pygments"
 Documentation = "https://dynovaio.github.io/newrelic-sb-nrql-pygments"
 Issues = "https://github.com/dynovaio/newrelic-sb-nrql-pygments/issues"
-Download = "https://github.com/dynovaio/newrelic-sb-nrql-pygments/archive/refs/tags/v0.4.1.zip"
+Download = "https://github.com/dynovaio/newrelic-sb-nrql-pygments/archive/refs/tags/v0.5.0.zip"
 Changelog = "https://github.com/dynovaio/newrelic-sb-nrql-pygments/blob/master/CHANGELOG.md"
 "Bug Tracker" = "https://github.com/dynovaio/newrelic-sb-nrql-pygments/issues"
 

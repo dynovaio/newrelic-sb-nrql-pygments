@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.5.0] - 2025-06-07
+
 * Add support for `bytecountestimate` function.
 * Enhance examples in Gallery.
 
