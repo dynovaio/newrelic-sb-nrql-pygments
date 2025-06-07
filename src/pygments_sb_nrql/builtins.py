@@ -102,6 +102,7 @@ FUNCTIONS = [
     "apdex",
     "average",
     "bucketPercentile",
+    "bytecountestimate",
     "cardinality",
     "cdfPercentage",
     "count",

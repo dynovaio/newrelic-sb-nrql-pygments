@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Add support for `bytecountestimate` function.
+
 ## [0.4.1] - 2025-05-30
 
 * Rename image to fix reference in documentation
