@@ -15,7 +15,12 @@ from pygments.token import (
     Text,
 )
 
-from .builtins import FUNCTIONS, KEYWORDS, OPERATORS, WORD_OPERATORS
+from pygments_sb_nrql.builtins import (
+    EXTENDED_KEYWORDS,
+    FUNCTIONS,
+    OPERATORS,
+    WORD_OPERATORS,
+)
 
 
 class NrqlLexer(RegexLexer):
@@ -46,7 +51,7 @@ class NrqlLexer(RegexLexer):
                 "multiline-comments",
             ),
             (
-                r"(" + "|".join(KEYWORDS) + r")\b",
+                r"(" + "|".join(EXTENDED_KEYWORDS) + r")\b",
                 Keyword,
             ),
             (
