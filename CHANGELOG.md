@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.6.0] - 2025-06-16
+
+* New keyword `USING` for `PREDICT` statements.
+* New function `holtwinter` for Holt-Winters forecasting with `PREDICT`
+  statements.
+
 ## [0.5.0] - 2025-06-07
 
 * Add support for `bytecountestimate` function.

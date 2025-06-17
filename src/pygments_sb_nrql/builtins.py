@@ -87,12 +87,12 @@ KEYWORDS = [
     "TIMESERIES",
     "METRIC_FORMAT",
     "RAW",
+    "USING",
 ]
 
 
 EXTENDED_KEYWORDS = [
     *KEYWORDS,
-    "USING",
 ]
 
 
@@ -141,6 +141,7 @@ FUNCTIONS = [
     "eventType",
     "getCdfCount",
     "getField",
+    "holtwinters",
     "if",
     "jparse",
     "length",
