@@ -20,6 +20,7 @@ KEYWORDS = [
     "NULL",
     "TRUE",
     "FALSE",
+    "NONE",
     # Keywords: time operators
     "THIS",
     "LAST",
