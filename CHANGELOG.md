@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.7.0] - 2025-06-19
+
 * Add NONE keyword used as value for the parameter seasonality in holtwinters
   function call.
 
